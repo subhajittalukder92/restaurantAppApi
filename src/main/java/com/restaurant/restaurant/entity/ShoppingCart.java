@@ -24,8 +24,7 @@ public class ShoppingCart extends AbstractClass{
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
-    @JoinColumn(name = "shopping_cart_id")
+    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true,mappedBy = "shoppingCart", cascade = CascadeType.ALL)
     private List<CartItems> cartItems = new ArrayList<>();
 
     public void add(CartItems items){

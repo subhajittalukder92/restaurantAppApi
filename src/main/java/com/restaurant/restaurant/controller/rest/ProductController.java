@@ -21,7 +21,8 @@ public class ProductController {
             @RequestParam(name = "page",required = false,defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) Integer page,
             @RequestParam(name = "size",required = false,defaultValue = AppConstants.DEFAULT_PAGE_SIZE) Integer size
             ){
-        return productService.getAllProducts(page,size);
+       // return productService.getAllProducts(page,size);
+        return productService.fetchAllProducts(page,size);
     }
     @GetMapping("/{id}")
     public ResponseEntity<Product> showProductById(@PathVariable("id") Long id){

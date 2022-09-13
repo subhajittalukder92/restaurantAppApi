@@ -81,7 +81,7 @@ public class CartServiceImpl implements CartService {
                 }
             }
             if(!productExist){
-                cartItems.add(new CartItems(null,product,1)) ;
+                cartItems.add(new CartItems(null,cart,product,1)) ;
                 cartRepository.save(cart);
             }
             System.out.println(cart);
@@ -91,12 +91,15 @@ public class CartServiceImpl implements CartService {
         }else{
             CartItems cartItem = new CartItems();
             ShoppingCart newShoppping = new ShoppingCart();
+            newShoppping.setUser(user);
+            newShoppping.setCreatedAt(Instant.now());
+
+            cartItem.setShoppingCart(newShoppping);
             cartItem.setProduct(product);
             cartItem.setQuantity(1);
 
-            newShoppping.setUser(user);
-            newShoppping.setCreatedAt(Instant.now());
             newShoppping.addItems(cartItem);
+
             System.out.println("New Cart-"+newShoppping);
             cartRepository.save(newShoppping);
 

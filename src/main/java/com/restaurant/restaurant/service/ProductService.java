@@ -11,5 +11,6 @@ public interface ProductService {
     public PagedResponse<ProductResponse> getAllProducts(Integer page, Integer size);
     public ResponseEntity<Product> findById(Long id);
     public List<ProductResponse> mapProductToResponse(List<Product> products);
+    public PagedResponse<ProductResponse> fetchAllProducts(Integer page, Integer size);
 
 }

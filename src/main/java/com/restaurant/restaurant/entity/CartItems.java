@@ -19,10 +19,11 @@ public class CartItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @JsonIgnore
-//    @ManyToOne
-//    @JoinColumn(name = "shopping_cart_id")
-//    private ShoppingCart shoppingCart;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "shopping_cart_id", referencedColumnName = "id")
+    private ShoppingCart shoppingCart;
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "product_id")
     private Product product;
